@@ -84,7 +84,7 @@
             wordChosen = wordList[Math.floor(Math.random() 
                 * wordList.length)];
             // change wordChosen into an array
-            var wordArray=wordChosen.split('')
+            var wordArray=wordChosen.split("")
             console.log(wordArray)
             // create underscores on the screen for all the letters not yet guessed
             var underscoresArray = wordChosen.replace(/.{1}/g, "_ ");
@@ -97,11 +97,7 @@
                 document.querySelector(".jumbotron").appendChild(letterBtn);
                 letterBtn.classList.add("data-letter","btn", "btn-info");
                 letterBtn.innerHTML= alphabet[i];
-                console.log(letterBtn);
-                
             }
-
-
 
             //look for if the letters pushed were in the chosen word
                 // if the letters pushed were in wordChosen then 
@@ -121,6 +117,7 @@
             var display = function (){
                 var lead2= document.createElement("p");
                 document.getElementsByClassName("jumbotron2");
+                document.querySelector(".jumbotron2").appendChild(lead2);
                 lead2.innerHTML = "You have " + lives + " lives left.";
                 if (lives < 1) {
                     jumbotron2.innerHTML = "Game Over! The Dinosaur name was " 
