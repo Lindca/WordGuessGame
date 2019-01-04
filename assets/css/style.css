@@ -7,3 +7,14 @@ header{
     text-align: center;
     margin: 20px auto;
 }
+p{
+    text-align: center;
+    font-size: 70px;
+}
+.btn{margin: 0 auto;
+    align-content: center;
+
+}
+.btn-info{margin: 0 auto;
+    align-content: center;
+}
