@@ -119,9 +119,11 @@
 
             // make a line that says you have how many guesses left
             var display = function (){
+                var lead2= document.createElement("p");
+                document.getElementsByClassName("jumbotron2");
                 lead2.innerHTML = "You have " + lives + " lives left.";
                 if (lives < 1) {
-                    lead2.innerHTML = "Game Over! The Dinosaur name was " 
+                    jumbotron2.innerHTML = "Game Over! The Dinosaur name was " 
                     + wordChosen + ".";
                 }
                 for (var i = 0; i < wordChosen.length; i++) {
