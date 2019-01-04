@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Gugi|Miniver|Rajdhani" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Hangman</title>
+</head>
+<body>
+    
+    <div class="jumbotron jumbotron-fluid jumbotron1">
+        <div class="container">
+            <h1 class="display-4">Guess the Dinosaur!</h1>
+            <p class="lead">This is a hangman-like game where you have to guess the dinosaur name.</p>
+        </div>
+    </div>
+    
+    <div class="jumbotron jumbotron-fluid jumbotron2">
+        <div class="container">
+          <h1 class="display-4">How many lives</h1>
+          <p class="lead lead2"></p>
+        </div>
+      </div>
+
+        <script type="text/javascript">
+                
+                //array of words
+                var wordList= [
+                "Albertosaurus",
+                "Allosaurus",
+                "Baryonyx",
+                "Carnotaurus",
+                "Coelophysis",
+                "Compsognathus",
+                "Deinonychus",
+                "Giganotosaurus",
+                "Megalosaurus",
+                "Ornithomimus",
+                "Oviraptor",
+                "Saurophaganax",
+                "Spinosaurus",
+                "Tyrannosaurus",
+                "Tyrannotitan",
+                "Velociraptor",
+                "Yangchuanosaurus",
+                "Apatosaurus",
+                "Brachiosaurus",
+                "Diplodocus",
+                "Giraffatitan",
+                "Jobaria",
+                "Macrurosaurus",
+                "Mamenchisaurus",
+                "Seismosaurus",
+                "Zigongosaurus",
+                "Ankylosaurus",
+                "Pachycephalosaurus",
+                "Minmi",
+                "Euoplocephalus",
+                "Psittacosaurus",
+                "Styracosaurus",
+                "Triceratops",
+                "Corythosaurus",
+                "Lesothosaurus",
+                "Iguanodon",
+                "Parasaurolophus",
+                "Stegoceras", 
+                ]    
+            var lives = 10;
+            var wordChosen;
+            var picked;
+            var total = 0;
+            var letterSelected = [];
+            var pickedList = [];
+            var underscoreArray= [];
+            var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+            'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+            't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+            // pick a word from the array
+            wordChosen = wordList[Math.floor(Math.random() 
+                * wordList.length)];
+            // change wordChosen into an array
+            var wordArray=wordChosen.split('')
+            console.log(wordArray)
+            // create underscores on the screen for all the letters not yet guessed
+            var underscoresArray = wordChosen.replace(/.{1}/g, "_ ");
+            console.log(underscoresArray)
+
+            // create buttons on the screen with the letters
+            for(var i = 0; i<alphabet.length; i++){
+                var letterBtn=document.createElement("BUTTON");
+                document.getElementsByClassName("jumbotron");
+                document.querySelector(".jumbotron").appendChild(letterBtn);
+                letterBtn.classList.add("data-letter","btn", "btn-info");
+                letterBtn.innerHTML= alphabet[i];
+                console.log(letterBtn);
+                
+            }
+
+
+
+            //look for if the letters pushed were in the chosen word
+                // if the letters pushed were in wordChosen then 
+                while(i<wordArray.length){
+                    if(letterBtn===wordArray[i]){
+                        wordArray.splice(//at the position where they are the same?
+                        )
+
+                    }     
+                    
+                }
+                
+                // add them to the empty underscores
+
+
+            // make a line that says you have how many guesses left
+            var display = function (){
+                lead2.innerHTML = "You have " + lives + " lives left.";
+                if (lives < 1) {
+                    lead2.innerHTML = "Game Over! The Dinosaur name was " 
+                    + wordChosen + ".";
+                }
+                for (var i = 0; i < wordChosen.length; i++) {
+                    if (underscoreArray===wordArray) {
+                        lead2.innerHTML = "You Win!";
+                    }
+                }
+
+            }
+
+        </script>
+    
+</body>
+</html>
