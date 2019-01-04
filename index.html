@@ -71,15 +71,14 @@
                 ]    
             var lives = 10;
             var wordChosen;
-            var picked;
             var total = 0;
             var letterSelected = [];
-            var pickedList = [];
             var underscoreArray= [];
             var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
             'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
             't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
+            ******//this also needs to be in a function called start game?
+            // how do I call the functions and where?
             // pick a word from the array
             wordChosen = wordList[Math.floor(Math.random() 
                 * wordList.length)];
@@ -104,36 +103,36 @@
 
             //look for if the letters pushed were in the chosen word
                 // if the letters pushed were in wordChosen then 
+                // splice(position, numberOfItemsToRemove, item)
+            ******// this needs to be in a function as well
                 while(i<wordArray.length){
                     if(letterBtn===wordArray[i]){
-                        wordArray.splice(//at the position where they are the same?
-                        );
-                        letterBtn.push(underscoreArray)
-
+                        underscoreArray.splice(wordArray[i],1,letterBtn);
+                         // add them to the empty underscores
                     }     
+                    else{// change color of letterBtn to red
+
+                    }
                     
                 }
-                
-                // add them to the empty underscores
-
 
             // make a line that says you have how many guesses left
-            var display = function (){
+            ******// this will need to be in a function
                 var lead2= document.createElement("p");
                 document.getElementsByClassName("jumbotron2");
                 document.querySelector(".jumbotron2").appendChild(lead2);
                 lead2.innerHTML = "You have " + lives + " lives left.";
                 if (lives < 1) {
                     lead2.innerHTML = "Game Over! The Dinosaur name was " 
-                    + wordChosen + ".";
+                    + wordChosen + ". Refresh the page to play again!";
                 }
                 for (var i = 0; i < wordChosen.length; i++) {
                     if (underscoreArray===wordArray) {
-                        lead2.innerHTML = "You Win!";
+                        lead2.innerHTML = "You Win! Refresh the page to play again!";
                     }
                 }
 
-            }
+            
 
         </script>
     
