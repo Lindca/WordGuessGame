@@ -87,14 +87,17 @@
             var wordArray=wordChosen.split("")
             console.log(wordArray)
             // create underscores on the screen for all the letters not yet guessed
-            var underscoresArray = wordChosen.replace(/.{1}/g, "_ ");
-            console.log(underscoresArray)
+            var underscoreArray= document.createElement("p");
+            document.getElementsByClassName("jumbotron1");
+            document.querySelector(".jumbotron1").appendChild(underscoreArray);
+            underscoreArray.innerHTML= wordChosen.replace(/.{1}/g, "_ ");
+            console.log(underscoreArray)
 
             // create buttons on the screen with the letters
             for(var i = 0; i<alphabet.length; i++){
                 var letterBtn=document.createElement("BUTTON");
-                document.getElementsByClassName("jumbotron");
-                document.querySelector(".jumbotron").appendChild(letterBtn);
+                document.getElementsByClassName("jumbotron1");
+                document.querySelector(".jumbotron1").appendChild(letterBtn);
                 letterBtn.classList.add("data-letter","btn", "btn-info");
                 letterBtn.innerHTML= alphabet[i];
             }
@@ -104,7 +107,8 @@
                 while(i<wordArray.length){
                     if(letterBtn===wordArray[i]){
                         wordArray.splice(//at the position where they are the same?
-                        )
+                        );
+                        letterBtn.push(underscoreArray)
 
                     }     
                     
@@ -120,7 +124,7 @@
                 document.querySelector(".jumbotron2").appendChild(lead2);
                 lead2.innerHTML = "You have " + lives + " lives left.";
                 if (lives < 1) {
-                    jumbotron2.innerHTML = "Game Over! The Dinosaur name was " 
+                    lead2.innerHTML = "Game Over! The Dinosaur name was " 
                     + wordChosen + ".";
                 }
                 for (var i = 0; i < wordChosen.length; i++) {
