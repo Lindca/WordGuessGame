@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Gugi|Miniver|Rajdhani" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Hangman</title>
 </head>
@@ -75,15 +75,16 @@
         var lives = 10;
         var wordChosen;
         var total = 0;
-        var letterSelected = [];
+        var correctSelected = [];
         var underscoreArray = [];
+        var lead2 = document.createElement("p");
         var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
             'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
             't', 'u', 'v', 'w', 'x', 'y', 'z'];
         // ******//this also needs to be in a function called start game?
         // how do I call the functions and where?
         // pick a word from the array
-        wordChosen = wordList[Math.floor(Math.random()
+        var wordChosen = wordList[Math.floor(Math.random()
             * wordList.length)];
         // change wordChosen into an array
         var wordArray = wordChosen.split("")
@@ -91,11 +92,11 @@
         var secretWord = document.createElement("p");
         document.getElementsByClassName("jumbotron1");
         document.querySelector(".jumbotron1").appendChild(secretWord);
-        
-         
-        for(var y=0; y<wordChosen.length; y++){
+
+
+        for (var y = 0; y < wordChosen.length; y++) {
             secretWord.innerHTML = underscoreArray.join("");
-            underscoreArray.push("_ "); 
+            underscoreArray.push(" _ ");
         }
         console.log(underscoreArray.join(""))
         var letterBtn;
@@ -107,46 +108,49 @@
             letterBtn.classList.add("btn", "btn-info");
             letterBtn.setAttribute("data-letter", alphabet[i])
             letterBtn.innerHTML = alphabet[i];
-             //look for if the letters pushed were in the chosen word
+            //look for if the letters pushed were in the chosen word
             // if the letters pushed were in wordChosen then 
             letterBtn.onclick = function continuouslyRun() {
                 var datalttr = this.getAttribute("data-letter");
-                console.log(datalttr, wordArray)
                 var indexOfArrayWord;
-                while (wordArray.includes(datalttr)) {
-                    indexOfArrayWord = wordArray.indexOf(datalttr);
-                    wordArray[indexOfArrayWord]="";
-                    underscoreArray[indexOfArrayWord] = datalttr;
+                if(wordArray.includes(datalttr)){
+                    while (wordArray.includes(datalttr)) {
+                        indexOfArrayWord = wordArray.indexOf(datalttr);
+                        wordArray[indexOfArrayWord] = "";
+                        underscoreArray[indexOfArrayWord] = datalttr;
+                        correctSelected.push(indexOfArrayWord);
+                        for (var y = 0; y < wordChosen.length; y++) {
+                            secretWord.innerHTML = underscoreArray.join("");
+                        }
+                        this.classList.add("btnUsed");
+                        console.log(correctSelected)
+                    }
+                }
+                else{
                     this.classList.add("btnUsed");
-                    console.log(indexOfArrayWord, wordArray);
+                    lives = lives - 1;
+                }
 
-                }
-                if(wordArray.indexOf( datalttr ) != -1){
-                    this.classList.add("btnUsed");
-                    lives=lives-1;
-                    
-                }
-               
                 // ******// this needs to be in a function as well
-                var lead2 = document.createElement("p");
                 document.getElementsByClassName("jumbotron2");
                 document.querySelector(".jumbotron2").prepend(lead2);
                 lead2.innerHTML = "You have " + lives + " lives left.";
                 if (lives < 1) {
                     lead2.innerHTML = "Game Over! The Dinosaur name was "
                         + wordChosen + ". Refresh the page to play again!";
+                        
                 }
-                for (var i = 0; i < wordChosen.length; i++) {
-                    if (underscoreArray === wordChosen.split("")) {
+                if (correctSelected.length===underscoreArray.length) {
                         lead2.innerHTML = "You Win! Refresh the page to play again!";
-                    }
+                        
                 }
                 
+            
             }
+            
         }
-
-
-
+        if (lives < 1) {throw "Refresh the page to play again!"}
+        if (correctSelected.length===underscoreArray.length) {throw "Refresh the page to play again!"}
 
     </script>
 
