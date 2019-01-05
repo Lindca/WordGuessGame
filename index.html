@@ -107,40 +107,40 @@
             // ******// this needs to be in a function as well
             // *************** DO I NEED TO CHANGE data-letter into an array?
 
-        document.getElementsByClassName(".btn").onclick = continuouslyRun(){
-            function addLetter(letterpressed){
-                while(i<wordArray.length){
-                    if(letterBtn.indexOf(wordArray)
-                    ){
-                    var indexOfChosenWord=wordArray.findIndex(letterBtn)
-                    underscoreArray.splice(indexOfChosenWord,1,letterBtn);
-                    }     
-                    else{letterBtn.classList.add("btnUsed");
-                    lives--;
-                    }  
-                }
-            }
-            addLetter(letterBtn)
-
-            // make a line that says you have how many guesses left
-            // ******// this will need to be in a function
-            function manyLives(howmany){
-                var lead2= document.createElement("p");
-                document.getElementsByClassName("jumbotron2");
-                document.querySelector(".jumbotron2").appendChild(lead2);
-                lead2.innerHTML = "You have " + lives + " lives left.";
-                if (lives < 1) {
-                    lead2.innerHTML = "Game Over! The Dinosaur name was " 
-                    + wordChosen + ". Refresh the page to play again!";
-                }
-                for (var i = 0; i < wordChosen.length; i++) {
-                    if (underscoreArray===wordArray) {
-                        lead2.innerHTML = "You Win! Refresh the page to play again!";
+            letterBtn.onclick = function continuouslyRun(){
+                function addLetter(letterpressed){
+                    while(i<wordArray.length){
+                        if(letterBtn.indexOf(wordArray)
+                        ){
+                        var indexOfChosenWord=wordArray.findIndex(letterBtn);
+                        underscoreArray.splice(indexOfChosenWord,1,letterBtn);
+                        console.log(indexOfChosenWord)
+                        }
+                        else{letterBtn.classList.add("btnUsed");
+                        lives--;
+                        }  
                     }
                 }
-            }
-            manyLives()
-        }   
+                addLetter(letterBtn)
+                // make a line that says you have how many guesses left
+                // ******// this will need to be in a function
+                function manyLives(howmany){
+                    var lead2= document.createElement("p");
+                    document.getElementsByClassName("jumbotron2");
+                    document.querySelector(".jumbotron2").appendChild(lead2);
+                    lead2.innerHTML = "You have " + lives + " lives left.";
+                    if (lives < 1) {
+                        lead2.innerHTML = "Game Over! The Dinosaur name was " 
+                        + wordChosen + ". Refresh the page to play again!";
+                    }
+                    for (var i = 0; i < wordChosen.length; i++) {
+                        if (underscoreArray===wordArray) {
+                            lead2.innerHTML = "You Win! Refresh the page to play again!";
+                        }
+                    }
+                }
+                manyLives()
+            }   
             
 
         </script>
