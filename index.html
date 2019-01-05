@@ -77,7 +77,7 @@
             var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
             'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
             't', 'u', 'v', 'w', 'x', 'y', 'z'];
-            ******//this also needs to be in a function called start game?
+            // ******//this also needs to be in a function called start game?
             // how do I call the functions and where?
             // pick a word from the array
             wordChosen = wordList[Math.floor(Math.random() 
@@ -104,20 +104,27 @@
             //look for if the letters pushed were in the chosen word
                 // if the letters pushed were in wordChosen then 
                 // splice(position, numberOfItemsToRemove, item)
-            ******// this needs to be in a function as well
-                while(i<wordArray.length){
-                    if(letterBtn===wordArray[i]){
-                        underscoreArray.splice(wordArray[i],1,letterBtn);
-                         // add them to the empty underscores
-                    }     
-                    else{// change color of letterBtn to red
+            // ******// this needs to be in a function as well
+            // *************** DO I NEED TO CHANGE data-letter into an array?
 
-                    }
-                    
+        document.getElementsByClassName(".btn").onclick = continuouslyRun(){
+            function addLetter(letterpressed){
+                while(i<wordArray.length){
+                    if(letterBtn.indexOf(wordArray)
+                    ){
+                    var indexOfChosenWord=wordArray.findIndex(letterBtn)
+                    underscoreArray.splice(indexOfChosenWord,1,letterBtn);
+                    }     
+                    else{letterBtn.classList.add("btnUsed");
+                    lives--;
+                    }  
                 }
+            }
+            addLetter(letterBtn)
 
             // make a line that says you have how many guesses left
-            ******// this will need to be in a function
+            // ******// this will need to be in a function
+            function manyLives(howmany){
                 var lead2= document.createElement("p");
                 document.getElementsByClassName("jumbotron2");
                 document.querySelector(".jumbotron2").appendChild(lead2);
@@ -131,7 +138,9 @@
                         lead2.innerHTML = "You Win! Refresh the page to play again!";
                     }
                 }
-
+            }
+            manyLives()
+        }   
             
 
         </script>
