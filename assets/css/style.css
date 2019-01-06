@@ -22,11 +22,13 @@ button{
 }
 .btn{
     font-size: 40px;
-    
 }
 .jumbotron{
     font-family: 'Cabin Sketch', cursive;
-    margin:10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    margin-bottom:10px;
 }
 body {
     background-image: url("../images/dinosaur-on-seamless-pattern_1308-19437.jpg");
