@@ -2,13 +2,16 @@ header{
     border: 3px solid black;
     height: 150px;
     width: 80%;
-    font-family: 'Cabin Sketch', cursive;
+    font-family: 'ZCOOL KuaiLe', cursive;
     font-size: 20px;
     text-align: center;
     margin: 20px auto;
 }
 p{text-align: center;
-    font-size: 60px;
+    font-size: 65px;
+}
+.lead{
+    font-size: 25px;
 }
 .btnUsed{
     background: black;
@@ -24,11 +27,12 @@ button{
     font-size: 40px;
 }
 .jumbotron{
-    font-family: 'Cabin Sketch', cursive;
+    font-family: 'ZCOOL KuaiLe', cursive;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 10px;
     margin-bottom:10px;
+    background-color: #FFFFFF;
 }
 body {
     background-image: url("../images/dinosaur-on-seamless-pattern_1308-19437.jpg");

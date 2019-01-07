@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Hangman</title>
 </head>
@@ -22,7 +22,6 @@
         </div>
     </div>
     <br>
-    <img src="./assets/images/Hangman0.png" id="image" class="rounded mx-auto d-block">
     <br>
     <div class="jumbotron jumbotron-fluid jumbotron2">
         <div class="container">
@@ -31,162 +30,7 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-
-        //array of words
-        var wordList = [
-            "albertosaurus",
-            "allosaurus",
-            "baryonyx",
-            "carnotaurus",
-            "coelophysis",
-            "compsognathus",
-            "deinonychus",
-            "giganotosaurus",
-            "megalosaurus",
-            "ornithomimus",
-            "oviraptor",
-            "saurophaganax",
-            "spinosaurus",
-            "tyrannosaurus",
-            "tyrannotitan",
-            "velociraptor",
-            "yangchuanosaurus",
-            "apatosaurus",
-            "brachiosaurus",
-            "diplodocus",
-            "giraffatitan",
-            "jobaria",
-            "macrurosaurus",
-            "mamenchisaurus",
-            "seismosaurus",
-            "zigongosaurus",
-            "ankylosaurus",
-            "pachycephalosaurus",
-            "minmi",
-            "euoplocephalus",
-            "psittacosaurus",
-            "styracosaurus",
-            "triceratops",
-            "corythosaurus",
-            "lesothosaurus",
-            "iguanodon",
-            "parasaurolophus",
-            "stegoceras",
-        ]
-        var lives = 10;
-        var wordChosen;
-        var total = 0;
-        var correctSelected = [];
-        var underscoreArray = [];
-        var lead2 = document.createElement("p");
-        var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-            'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-            't', 'u', 'v', 'w', 'x', 'y', 'z'];
-        // ******//this also needs to be in a function called start game?
-        // how do I call the functions and where?
-        // pick a word from the array
-        var wordChosen = wordList[Math.floor(Math.random()
-            * wordList.length)];
-        // change wordChosen into an array
-        var wordArray = wordChosen.split("")
-        // create underscores on the screen for all the letters not yet guessed
-        var secretWord = document.createElement("p");
-        document.getElementsByClassName("jumbotron1");
-        document.querySelector(".jumbotron1").appendChild(secretWord);
-
-
-        for (var y = 0; y < wordChosen.length; y++) {
-            secretWord.innerHTML = underscoreArray.join("");
-            underscoreArray.push(" _ ");
-        }
-        console.log(underscoreArray.join(""))
-        var letterBtn;
-        // create buttons on the screen with the letters
-        for (var i = 0; i < alphabet.length; i++) {
-            letterBtn = document.createElement("BUTTON");
-            document.getElementsByClassName("jumbotron1");
-            document.querySelector(".jumbotron1").appendChild(letterBtn);
-            letterBtn.classList.add("btn", "btn-info");
-            letterBtn.setAttribute("data-letter", alphabet[i])
-            letterBtn.innerHTML = alphabet[i];
-            //look for if the letters pushed were in the chosen word
-            // if the letters pushed were in wordChosen then 
-            letterBtn.onclick = function continuouslyRun() {
-                var datalttr = this.getAttribute("data-letter");
-                var indexOfArrayWord;
-                if(wordArray.includes(datalttr)){
-                    while (wordArray.includes(datalttr)) {
-                        indexOfArrayWord = wordArray.indexOf(datalttr);
-                        wordArray[indexOfArrayWord] = "";
-                        underscoreArray[indexOfArrayWord] = datalttr;
-                        correctSelected.push(indexOfArrayWord);
-                        for (var y = 0; y < wordChosen.length; y++) {
-                            secretWord.innerHTML = underscoreArray.join("");
-                        }
-                        this.classList.add("btnUsed");
-                        console.log(correctSelected)
-                    }
-                }
-                else{
-                    this.classList.add("btnUsed");
-                    lives = lives - 1;
-                }
-
-                // ******// this needs to be in a function as well
-                document.getElementsByClassName("jumbotron2");
-                document.querySelector(".jumbotron2").prepend(lead2);
-                lead2.innerHTML = "You have " + lives + " lives left.";
-                if (lives < 1) {
-                    lead2.innerHTML = "Game Over! The Dinosaur name was "
-                        + wordChosen + ". Refresh the page to play again!";
-                        
-                }
-                if (correctSelected.length===underscoreArray.length) {
-                        lead2.innerHTML = "You Win! Refresh the page to play again!";
-                        
-                }
-                // if(lives=10){document.getElementById("image").src="./assets/images/Hangman1.png";
-
-                // }
-                // if(lives=9){document.getElementById("image").src="./assets/images/Hangman2.png";
-
-                // }
-                // if(lives=8){document.getElementById("image").src="./assets/images/Hangman3.png";
-                    
-                // }
-                // if(lives=7){document.getElementById("image").src="./assets/images/Hangman4.png";
-                    
-                // }
-                // if(lives=6){document.getElementById("image").src="./assets/images/Hangman5.png";
-                    
-                // }
-                // if(lives=5){document.getElementById("image").src="./assets/images/Hangman6.png";
-                    
-                // }
-                // if(lives=4){document.getElementById("image").src="./assets/images/Hangman7.png";
-                    
-                // }
-                // if(lives=3){document.getElementById("image").src="./assets/images/Hangman8.png";
-                    
-                // }
-                // if(lives=2){document.getElementById("image").src="./assets/images/Hangman9.png";
-                    
-                // }
-                // if(lives=1){document.getElementById("image").src="./assets/images/Hangman10.png";
-                    
-                // }
-                // if(lives=0){document.getElementById("image").src="./assets/images/Hangman11.png";
-                    
-                // }
-            
-            }
-            
-        }
-        if (lives < 1) {throw "Refresh the page to play again!"}
-        if (correctSelected.length===underscoreArray.length) {throw "Refresh the page to play again!"}
-
-    </script>
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
 
 </body>
 
